@@ -1,0 +1,30 @@
+.header-search {
+    width: 320px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background-color: #ffff;
+    border: 2px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 0 10px;
+}
+
+.header-search input {
+    border: none;
+    font-size: 12px;
+    outline: 0;
+    height: 45px;
+}
+
+.header-search button {
+    background-color: #27AE60;
+    color: #ffff;
+    width: 90px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}

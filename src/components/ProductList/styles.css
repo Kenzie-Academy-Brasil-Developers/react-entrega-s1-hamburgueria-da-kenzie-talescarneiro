@@ -1,0 +1,17 @@
+.container-products {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    height: auto;
+    flex-wrap: nowrap;
+}
+
+@media screen and (min-width: 1320px) {
+    .container-products {
+        max-width: 65%;
+        min-width: 65%;
+        justify-content: center;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+}
