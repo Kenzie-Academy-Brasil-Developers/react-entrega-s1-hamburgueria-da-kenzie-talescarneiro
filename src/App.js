@@ -17,8 +17,6 @@ function App() {
   const [productList, setProductList] = useState([])
   const [cartList, setCartList] = useState([])
   const [filterList, setFilterList] = useState([])
-
-  const notify = () => toast('Wow so easy!')
   
   useEffect(() => {
     api.get()
@@ -47,35 +45,49 @@ function App() {
     setCartList(cartList.filter(item => item !== cartItem))
   }
 
+  const search = (value) => {
+    const prod = productList.filter((product) => {
+      return product.name.toLowerCase().includes(value.toLowerCase()) || product.category.toLowerCase().includes(value.toLowerCase())
+    })
+    setFilterList(prod)
+  }
+
+  console.log(filterList.length)
+
   return (
     <main className="App">
       <Header>
         <HeaderLogo />
-        <HeaderInputSearch/>
+        <HeaderInputSearch search={search}/>
       </Header>
 
       <Container>
         <ProductList>
-          {productList.map(product => (
-            <Product key={product.id} product={product} addToCart={addToCart}/>
-          ))}
+          {
+            filterList.length > 0 ? 
+              filterList.map(product => (
+                <Product key={product.id} product={product} addToCart={addToCart}/>
+              )) 
+              : 
+              productList.map(product => (
+                <Product key={product.id} product={product} addToCart={addToCart}/>
+            ))
+          }
         </ProductList>
         {cartList.length > 0 ? (<Cart cartList={cartList} removeFromCart={removeFromCart} setCartList={setCartList} />) : (<CartEmpty />)}
       </Container>
 
       <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-/>
-{/* Same as */}
-<ToastContainer />
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </main>
   );
 }
