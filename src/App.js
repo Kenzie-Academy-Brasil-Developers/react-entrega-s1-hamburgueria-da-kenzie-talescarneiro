@@ -52,8 +52,6 @@ function App() {
     setFilterList(prod)
   }
 
-  console.log(filterList.length)
-
   return (
     <main className="App">
       <Header>
