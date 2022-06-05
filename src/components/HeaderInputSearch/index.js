@@ -1,14 +1,16 @@
 import React from 'react'
 import './styles.css'
+import useState from 'react'
 
 const HeaderInputSearch = () => {
+
   return (
     <div className='header-search'>
-      <input 
+      <input
       type="text"
       placeholder='Digitar Pesquisa'
       />
-      <button>Pesquisar</button>
+      <button type='submit'>Pesquisar</button>
     </div>
   )
 }

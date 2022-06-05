@@ -11,6 +11,11 @@
     padding: 0 15px;
 }
 
+.product-header figure img {
+    width: 177px;
+    height: 177px;
+}
+
 .product-body {
     height: 140px;
     margin: 15px;

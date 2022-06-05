@@ -1,20 +1,20 @@
 import React from 'react'
-import image from './hamburguer.png'
 import './styles.css'
 
-const Product = () => {
+const Product = ({product, addToCart}) => {
+
   return (
     <div className='product'>
         <div className='product-header'>
             <figure>
-                <img src={image} alt='imagem'/>
+                <img src={product.img} alt={product.name}/>
             </figure>
         </div>
         <div className='product-body'>
-            <h2 className='product-title'>Hamburguer</h2>
-            <p className='product-category'>Sanduiches</p>
-            <p className='product-price'>R$ 14.00</p>
-            <button className='product-button'>Adicionar</button>
+            <h2 className='product-title'>{product.name}</h2>
+            <p className='product-category'>{product.category}</p>
+            <p className='product-price'>R$ {product.price.toFixed(2)}</p>
+            <button className='product-button' onClick={() => addToCart(product)}>Adicionar</button>
         </div>
     </div>
   )
